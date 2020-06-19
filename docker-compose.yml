@@ -1,0 +1,18 @@
+version: '3'
+services:
+  database:
+    image: erpmicroservices/people_and_organizations-database:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+
+  api:
+    image: erpmicroservices/people_and_organizations_endpoint_rest:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.datasource.url=jdbc:postgresql://database:5432/people_and_organizations
+
+volumes:
+  dbdata:
