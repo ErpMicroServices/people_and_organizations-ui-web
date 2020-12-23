@@ -10,9 +10,26 @@ services:
   api:
     image: erpmicroservices/people_and_organizations_endpoint_rest:1.0.0
     ports:
-      - "8080:8080"
+      - "9090:8080"
     environment:
       - spring.datasource.url=jdbc:postgresql://database:5432/people_and_organizations
+    labels:
+      - "traefik.port=8080"
+      - "traefik.http.routers.api.rule=PathPrefix(`/people_and_organizations/api`)"
+      - "traefik.http.routers.api.middlewares=strip-api@docker"
+      - "traefik.http.middlewares.strip-api.stripprefix.prefixes=/people_and_organizations/api"
+  #      - "traefik.http.middlewares.strip-api.stripprefix.forceSlash=true"
+
+  reverse-proxy:
+    image: traefik:v2.3
+    command: --api.insecure=true --providers.docker
+    ports:
+      - "80:80"
+      - "8080:8080"
+    labels:
+      - "traefik.enable=true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   dbdata:
