@@ -1,9 +1,14 @@
-import React, {Component}                             from 'react'
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom"
+import {library}                                                          from '@fortawesome/fontawesome-svg-core'
+import {fab}                                                              from '@fortawesome/free-brands-svg-icons'
+import {faAngleDoubleLeft, faAngleDoubleRight, faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
+import React, {Component}                                                 from 'react'
+import {BrowserRouter as Router, Link, Route, Switch}                     from "react-router-dom"
 import './App.css'
-import Home                                           from './Home'
-import PartyTypes                                     from './PartyTypes'
+import CaseRoleTypes                                                      from './CaseRoleTypes'
+import Home                                                               from './Home'
+import PartyTypes                                                         from './PartyTypes'
 
+library.add(fab, faAngleDoubleLeft, faAngleDoubleRight, faAngleLeft, faAngleRight)
 
 class App extends Component {
 
@@ -19,20 +24,22 @@ class App extends Component {
 								<Link to="/" >Home</Link >
 							</li >
 							<li >
+								<Link to="/caseRoleTypes" >Case Role Types</Link >
+							</li >
+							<li >
 								<Link to="/partyTypes" >Party Types</Link >
 							</li >
 						</ul >
 					</nav >
-
-
-					{/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
 					<Switch >
+						<Route path="/caseRoleTypes" >
+							<CaseRoleTypes id={'app'} />
+						</Route >
 						<Route path="/partyTypes" >
-							<PartyTypes />
+							<PartyTypes id={'app'} />
 						</Route >
 						<Route path="/" >
-							<Home />
+							<Home id={'app'} />
 						</Route >
 					</Switch >
 				</div >
