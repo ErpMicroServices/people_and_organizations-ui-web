@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
 import logo               from './logo.svg'
-import Party_types        from './party_types'
+import PartyTypes         from './PartyTypes'
 
 class App extends Component {
 
@@ -17,7 +17,7 @@ class App extends Component {
 				<p className="App-intro" >
 					To get started, edit <code >src/App.js</code > and save to reload.
 				</p >
-				<Party_types />
+				<PartyTypes />
 			</div >
 		)
 	}
