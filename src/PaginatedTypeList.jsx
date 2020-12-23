@@ -60,6 +60,7 @@ export default class PaginatedList extends React.Component {
 		size       : 20,
 		sort       : 'description'
 	}
+
 	componentDidMount = async () => {
 		await this.updateData()
 	}
