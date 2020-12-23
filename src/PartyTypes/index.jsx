@@ -19,7 +19,7 @@ export default class index extends React.Component {
 	}
 
 	render () {
-		const componentName = 'indexComponent'
+		const componentName = 'partyTypesComponent'
 		const id            = `${componentName}_${this.props.id}`
 		return (
 			<div id={id} className={componentName} >
