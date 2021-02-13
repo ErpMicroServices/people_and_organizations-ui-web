@@ -31,7 +31,7 @@ export default class index extends React.Component {
 	}
 
 	renderButton = pageNumber => <button id={`$PaginatedListComponent_button_${pageNumber}`}
-		onClick={e => this.setState({page: pageNumber})} >
+		onClick={() => this.setState({page: pageNumber})} >
 		{pageNumber + 1}
 	</button >
 
@@ -40,18 +40,19 @@ export default class index extends React.Component {
 		const id            = `${componentName}_${this.props.id}`
 		return (
 			<div id={id} className={componentName} >
-				<button id={`${id}_beginning`} onClick={e => this.props.onPageNumberChange(1)} >
+				<button id={`${id}_beginning`} onClick={() => this.props.onPageNumberChange(1)} >
 					<FontAwesomeIcon icon={'angle-double-left'} />
 				</button >
-				<button id={`${id}_next`} onClick={e => this.props.onPageNumberChange(this.props.page - 1)} >
+				<button id={`${id}_next`} onClick={() => this.props.onPageNumberChange(this.props.page - 1)} >
 					<FontAwesomeIcon icon={'angle-left'} />
 				</button >
 				{[...Array(this.props.result_page.totalPages).keys()]
 					.map(pageNumber => this.renderButton(pageNumber))}
-				<button id={`${id}_beginning`} onClick={e => this.props.onPageNumberChange(this.props.page + 1)} >
+				<button id={`${id}_beginning`} onClick={() => this.props.onPageNumberChange(this.props.page + 1)} >
 					<FontAwesomeIcon icon={'angle-right'} />
 				</button >
-				<button id={`${id}_beginning`} onClick={e => this.props.onPageNumberChange(this.props.result_page.totalPages)} >
+				<button id={`${id}_beginning`}
+					onClick={() => this.props.onPageNumberChange(this.props.result_page.totalPages)} >
 					<FontAwesomeIcon icon={'angle-double-right'} />
 				</button >
 				<NumberField id={'size'} label={'Size'} value={this.props.size}

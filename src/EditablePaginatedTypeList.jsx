@@ -17,7 +17,6 @@ export default class PaginatedList extends React.Component {
 	render () {
 		const componentName = 'PaginatedListComponent'
 		const id            = `${componentName}_${this.props.id}`
-		const foo           = this
 		return <div id={id} className={componentName} >
 			<PaginationControl id={id} result_page={this.state.result_page} page={this.state.page} size={this.state.size}
 				onPageNumberChange={pageNumber => this.setState({page: pageNumber})}
@@ -50,8 +49,8 @@ export default class PaginatedList extends React.Component {
 		await this.updateData()
 	}
 
-	componentDidUpdate = async (prevProps, prevState, snapshot) => {
-		if ((this.state.page != prevState.page) || (this.state.size != prevState.size)) {
+	componentDidUpdate = async (prevProps, prevState) => {
+		if ((this.state.page !== prevState.page) || (this.state.size !== prevState.size)) {
 			await this.updateData()
 		}
 	}
