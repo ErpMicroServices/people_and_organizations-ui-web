@@ -4,7 +4,7 @@ import {faAngleDoubleLeft, faAngleDoubleRight, faAngleLeft, faAngleRight} from '
 import React, {Component}                                                 from 'react'
 import {BrowserRouter as Router, Link, Route, Switch}                     from "react-router-dom"
 import './App.css'
-import CaseRoleTypes                                                      from './CaseRoleTypes'
+import Index                                                              from './CaseRoleTypes'
 import Home                                                               from './Home'
 import PartyTypes                                                         from './PartyTypes'
 
@@ -32,11 +32,11 @@ class App extends Component {
 						</ul >
 					</nav >
 					<Switch >
-						<Route path="/caseRoleTypes" >
-							<CaseRoleTypes id={'app'} />
+						<Route path = "/caseRoleTypes" >
+							<Index id = {'app'} />
 						</Route >
-						<Route path="/partyTypes" >
-							<PartyTypes id={'app'} />
+						<Route path = "/partyTypes" >
+							<PartyTypes id = {'app'} />
 						</Route >
 						<Route path="/" >
 							<Home id={'app'} />

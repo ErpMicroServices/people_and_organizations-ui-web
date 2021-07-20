@@ -8,26 +8,34 @@ services:
       - "dbdata:/var/lib/postgresql/data"
 
   api:
-    image: erpmicroservices/people_and_organizations_endpoint_rest:1.0.0
+    image: erpmicroservices/people_and_organizations_endpoint_rest:latest
     ports:
       - "9090:8080"
     environment:
       - spring.datasource.url=jdbc:postgresql://database:5432/people_and_organizations
+      - server.forward-headers-strategy=framework
     labels:
       - "traefik.port=8080"
       - "traefik.http.routers.api.rule=PathPrefix(`/people_and_organizations/api`)"
-      - "traefik.http.routers.api.middlewares=strip-api@docker"
-      - "traefik.http.middlewares.strip-api.stripprefix.prefixes=/people_and_organizations/api"
-  #      - "traefik.http.middlewares.strip-api.stripprefix.forceSlash=true"
+      - "traefik.http.routers.api.middlewares=api-strip@docker,api-headers@docker"
+      - "traefik.http.middlewares.api-strip.stripprefix.prefixes=/people_and_organizations/api"
+      - "traefik.http.middlewares.api-headers.headers.accesscontrolallowmethods=GET,OPTIONS,PUT"
+      - "traefik.http.middlewares.api-headers.headers.accesscontrolalloworiginlist=http://localhost,http://localhost:3000"
+
+    depends_on:
+      - "database"
 
   reverse-proxy:
-    image: traefik:v2.3
+    image: traefik:v2.4.8
     command: --api.insecure=true --providers.docker
     ports:
       - "80:80"
       - "8080:8080"
     labels:
       - "traefik.enable=true"
+
+    depends_on:
+      - "api"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 

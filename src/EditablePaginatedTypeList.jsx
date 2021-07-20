@@ -17,15 +17,18 @@ export default class PaginatedList extends React.Component {
 	render () {
 		const componentName = 'PaginatedListComponent'
 		const id            = `${componentName}_${this.props.id}`
-		return <div id={id} className={componentName} >
-			<PaginationControl id={id} result_page={this.state.result_page} page={this.state.page} size={this.state.size}
-				onPageNumberChange={pageNumber => this.setState({page: pageNumber})}
-				onPageSizeChange={pageSize => this.setState({size: pageSize, page: 1})} />
+		return <div id = {id} className = {componentName} >
+			<PaginationControl id = {id} result_page = {this.state.result_page} page = {this.state.page}
+												 size = {this.state.size}
+												 onPageNumberChange = {pageNumber => this.setState({page: pageNumber})}
+												 onPageSizeChange = {pageSize => this.setState({size: pageSize, page: 1})} />
 
-			<div id={`${id}_data`} >
+			<div id = {`${id}_data`} >
 				<ul >
-					{this.state.list.map((element, index) => <li key={index} >
+					{this.state.list.map((element, index) => <li key = {index} >
 						{element.description}
+						{element.aparent ? <PaginatedList id = {element.description} url = {element._links.children.href}
+																							responseJsonToList = {this.props.responseJsonToList} /> : ""}
 					</li >)}
 				</ul >
 			</div >
@@ -40,9 +43,11 @@ export default class PaginatedList extends React.Component {
 			totalPages   : 0,
 			number       : 0
 		},
-		page       : 1,
-		size       : 20,
-		sort       : 'description'
+		params     : {
+			page: 1,
+			size: 20,
+			sort: 'description'
+		}
 	}
 
 	componentDidMount = async () => {
@@ -56,7 +61,7 @@ export default class PaginatedList extends React.Component {
 	}
 
 	async updateData () {
-		let response     = await fetch(`${this.props.url}?page=${this.state.page - 1}&size=${this.state.size}&sort=${this.state.sort}`)
+		let response     = await fetch(`${this.props.url}?page=${this.state.params.page - 1}&size=${this.state.params.size}&sort=${this.state.params.sort}`)
 		let responseJson = await response.json()
 		this.setState({
 										list       : this.props.responseJsonToList(responseJson),

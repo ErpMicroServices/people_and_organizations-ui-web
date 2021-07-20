@@ -1,8 +1,8 @@
 import PropTypes         from 'prop-types'
 import React             from 'react'
-import PaginatedTypeList from './EditablePaginatedTypeList'
+import PaginatedTypeList from '../EditablePaginatedTypeList'
 
-export default class CaseRoleTypes extends React.Component {
+export default class Index extends React.Component {
 
 	static propTypes = {
 		id: PropTypes.string.isRequired
@@ -14,10 +14,10 @@ export default class CaseRoleTypes extends React.Component {
 		const componentName = 'CaseRoleTypesComponent'
 		const id            = `${componentName}_${this.props.id}`
 		return (
-			<div id={id} className={componentName} >
+			<div id = {id} className = {componentName} >
 				<h1 >Case Role Types</h1 >
-				<PaginatedTypeList id={id} url={'/people_and_organizations/api/caseRoleTypes'}
-					responseJsonToList={response => response._embedded.caseRoleTypes} />
+				<PaginatedTypeList id = {id} url = {'/people_and_organizations/api/caseRoleTypes/search/roots'}
+													 responseJsonToList = {response => response._embedded.caseRoleTypes} />
 			</div >
 		)
 	}

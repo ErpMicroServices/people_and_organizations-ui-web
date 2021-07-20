@@ -15,10 +15,10 @@ export default class index extends React.Component {
 		const componentName = 'partyTypesComponent'
 		const id            = `${componentName}_${this.props.id}`
 		return (
-			<div id={id} className={componentName} >
+			<div id = {id} className = {componentName} >
 				<h1 >Party Types</h1 >
-				<PaginatedTypeList id={id} url={'/people_and_organizations/api/partyTypes'}
-					responseJsonToList={response => response._embedded.partyTypes} />
+				<PaginatedTypeList id = {id} url = {'/people_and_organizations/api/partyTypes/search/roots'}
+													 responseJsonToList = {response => response._embedded.partyTypes} />
 			</div >
 		)
 	}
