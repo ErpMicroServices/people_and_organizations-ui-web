@@ -8,8 +8,10 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3"
   },
@@ -17,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bdd_test": "./node_modules/.bin/cucumber-js --tags @party_ui --publish-quiet --require-module @babel/register --require-module @babel/polyfill  -r ./features ../people_and_organizations-features"
   },
   "proxy": "http://localhost",
   "browserslist": {
@@ -33,6 +36,13 @@
     ]
   },
   "devDependencies": {
-    "prop-types": "^15.7.2"
+    "@babel/core": "^7.14.6",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "@cucumber/cucumber": "^7.3.1",
+    "chai": "^4.3.4",
+    "node-fetch": "^2.6.1",
+    "pg-promise": "^10.10.2"
   }
 }
