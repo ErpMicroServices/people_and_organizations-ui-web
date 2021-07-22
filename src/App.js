@@ -7,6 +7,7 @@ import './App.css'
 import Index                                                              from './CaseRoleTypes'
 import CaseStatusTypes                                                    from './CaseStatusTypes'
 import CaseTypes                                                          from './CaseTypes'
+import CommunicationEventTypes                                            from './CommunicationEventTypes'
 import Home                                                               from './Home'
 import PartyTypes                                                         from './PartyTypes'
 
@@ -35,6 +36,10 @@ class App extends Component {
 								<Link id = {'caseTypes'} to = "/caseTypes" >Case Types</Link >
 							</li >
 							<li >
+								<Link id = {'communicationEventTypes'} to = "/communicationEventTypes" >Communication Event
+																																												Types</Link >
+							</li >
+							<li >
 								<Link to = "/partyTypes" >Party Types</Link >
 							</li >
 						</ul >
@@ -48,6 +53,9 @@ class App extends Component {
 						</Route >
 						<Route path = "/caseTypes" >
 							<CaseTypes id = {'app'} />
+						</Route >
+						<Route path = "/communicationEventTypes" >
+							<CommunicationEventTypes id = {'app'} />
 						</Route >
 						<Route path = "/partyTypes" >
 							<PartyTypes id = {'app'} />
