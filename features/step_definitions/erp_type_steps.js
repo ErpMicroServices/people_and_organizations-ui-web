@@ -51,6 +51,7 @@ When('I save the type', async function () {
 		await caseTypeMenuItem.click()
 		await this.client.findElement(By.id('descriptionTextFieldInput')).sendKeys(this.parentErpType.description)
 		await this.client.findElement(By.id('saveType')).click()
+		await new Promise(resolve => setTimeout(resolve, 1000))
 	} catch (error) {
 		this.result.error = error
 	}

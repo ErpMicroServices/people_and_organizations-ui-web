@@ -15,6 +15,15 @@ export default class CaseTypes extends React.Component {
 
 	saveCaseType = e => {
 		e.preventDefault()
+		fetch('/people_and_organizations/api/caseTypes', {
+			method : "post",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body   : JSON.stringify({
+																description: this.state.value.description
+															})
+		})
 	}
 
 	render () {

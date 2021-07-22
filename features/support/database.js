@@ -1,7 +1,12 @@
 /**
  * Created by JimBarrows on 7/20/21.
  */
-const pgp = require('pg-promise')()
+const initOptions = {
+	query (e) {
+		// console.log(e.query);
+	}
+}
+const pgp         = require('pg-promise')(initOptions)
 import * as moment from 'moment'
 import config      from "./config"
 
@@ -14,6 +19,7 @@ const parseFn         = function (val) {
 }
 types.setTypeParser(TIMESTAMPTZ_OID, parseFn)
 types.setTypeParser(TIMESTAMP_OID, parseFn)
+
 
 const database = pgp(config.database)
 
