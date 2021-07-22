@@ -6,7 +6,8 @@ import Edit      from './Edit'
 export default class ErpTypeComponent extends React.Component {
 
 	static propTypes = {
-		id: PropTypes.string.isRequired
+		id : PropTypes.string.isRequired,
+		uri: PropTypes.string.isRequired
 	}
 
 	static defaultProps = {}
@@ -15,7 +16,7 @@ export default class ErpTypeComponent extends React.Component {
 
 	saveCaseType = e => {
 		e.preventDefault()
-		fetch('/people_and_organizations/api/caseTypes', {
+		fetch(`/people_and_organizations/api/${this.props.uri}`, {
 			method : "post",
 			headers: {
 				"Content-Type": "application/json"

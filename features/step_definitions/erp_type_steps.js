@@ -112,7 +112,9 @@ Then('I find the type', async function () {
 
 Then('the type is in the database', async function () {
 	expect(this.result.error, this.result.error).to.be.null
-	let erpType = await this.db.any('select id, description, parent_id from case_type where description = $1', this.parentErpType.description)
+	let erpType = await this.db.any(`select id, description, parent_id
+                                   from ${this.type.table_name}
+                                   where description = $1`, this.parentErpType.description)
 	expect(erpType, "Expected to find the type in the database").to.not.be.empty
 })
 

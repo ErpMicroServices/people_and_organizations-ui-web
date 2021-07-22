@@ -16,5 +16,5 @@ export const create_parties_of_type = async function (db, party_type_description
 }
 
 export function convert_to_table_name (type) {
-	return type.replace(/\s+/g, '_').toLowerCase()
+	return `${type} Type`.replace(/\s+/g, '_').toLowerCase()
 }

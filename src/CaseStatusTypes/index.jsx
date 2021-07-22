@@ -16,7 +16,7 @@ export default class CaseStatusTypes extends React.Component {
 		return (
 			<div id = {id} className = {componentName} >
 				<h1 >Case Status Types</h1 >
-				<ErpTypeComponent id = {componentName} />
+				<ErpTypeComponent id = {componentName} uri = {'/caseStatusTypes'} />
 			</div >
 		)
 	}

@@ -26,7 +26,7 @@ class App extends Component {
 								<Link to = "/" >Home</Link >
 							</li >
 							<li >
-								<Link to = "/caseRoleTypes" >Case Role Types</Link >
+								<Link id = {'caseRoleTypes'} to = "/caseRoleTypes" >Case Role Types</Link >
 							</li >
 							<li >
 								<Link id = {'caseStatusTypes'} to = "/caseStatusTypes" >Case Status Types</Link >
