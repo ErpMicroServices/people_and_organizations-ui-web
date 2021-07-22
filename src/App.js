@@ -7,6 +7,8 @@ import './App.css'
 import Index                                                              from './CaseRoleTypes'
 import CaseStatusTypes                                                    from './CaseStatusTypes'
 import CaseTypes                                                          from './CaseTypes'
+import CommunicationEventPurposeTypes                                     from './CommunicationEventPurposeTypes'
+import CommunicationEventRoleTypes                                        from './CommunicationEventRoleTypes'
 import CommunicationEventTypes                                            from './CommunicationEventTypes'
 import Home                                                               from './Home'
 import PartyTypes                                                         from './PartyTypes'
@@ -40,6 +42,16 @@ class App extends Component {
 																																												Types</Link >
 							</li >
 							<li >
+								<Link id = {'communicationEventPurposeTypes'} to = "/communicationEventPurposeTypes" >Communication
+																																																			Event Purpose
+																																																			Types</Link >
+							</li >
+							<li >
+								<Link id = {'communicationEventRoleTypes'} to = "/communicationEventRoleTypes" >Communication
+																																																Event Role
+																																																Types</Link >
+							</li >
+							<li >
 								<Link to = "/partyTypes" >Party Types</Link >
 							</li >
 						</ul >
@@ -56,6 +68,12 @@ class App extends Component {
 						</Route >
 						<Route path = "/communicationEventTypes" >
 							<CommunicationEventTypes id = {'app'} />
+						</Route >
+						<Route path = "/communicationEventPurposeTypes" >
+							<CommunicationEventPurposeTypes id = {'app'} />
+						</Route >
+						<Route path = "/communicationEventRoleTypes" >
+							<CommunicationEventRoleTypes id = {'app'} />
 						</Route >
 						<Route path = "/partyTypes" >
 							<PartyTypes id = {'app'} />
