@@ -5,6 +5,7 @@ import React, {Component}                                                 from '
 import {BrowserRouter as Router, Link, Route, Switch}                     from 'react-router-dom'
 import './App.css'
 import Index                                                              from './CaseRoleTypes'
+import CaseStatusTypes                                                    from './CaseStatusTypes'
 import CaseTypes                                                          from './CaseTypes'
 import Home                                                               from './Home'
 import PartyTypes                                                         from './PartyTypes'
@@ -25,10 +26,13 @@ class App extends Component {
 								<Link to = "/" >Home</Link >
 							</li >
 							<li >
-								<Link id = {'caseTypes'} to = "/caseTypes" >Case Types</Link >
+								<Link to = "/caseRoleTypes" >Case Role Types</Link >
 							</li >
 							<li >
-								<Link to = "/caseRoleTypes" >Case Role Types</Link >
+								<Link id = {'caseStatusTypes'} to = "/caseStatusTypes" >Case Status Types</Link >
+							</li >
+							<li >
+								<Link id = {'caseTypes'} to = "/caseTypes" >Case Types</Link >
 							</li >
 							<li >
 								<Link to = "/partyTypes" >Party Types</Link >
@@ -36,11 +40,14 @@ class App extends Component {
 						</ul >
 					</nav >
 					<Switch >
-						<Route path = "/caseTypes" >
-							<CaseTypes id = {'app'} />
-						</Route >
 						<Route path = "/caseRoleTypes" >
 							<Index id = {'app'} />
+						</Route >
+						<Route path = "/caseStatusTypes" >
+							<CaseStatusTypes id = {'app'} />
+						</Route >
+						<Route path = "/caseTypes" >
+							<CaseTypes id = {'app'} />
 						</Route >
 						<Route path = "/partyTypes" >
 							<PartyTypes id = {'app'} />

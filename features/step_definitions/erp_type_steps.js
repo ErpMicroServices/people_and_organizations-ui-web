@@ -2,6 +2,7 @@
  * Created by JimBarrows on 7/20/21.
  */
 import {Given, Then, When}     from '@cucumber/cucumber'
+import camelCase               from 'camelcase'
 import {By}                    from 'selenium-webdriver'
 import {convert_to_table_name} from './util'
 
@@ -17,7 +18,7 @@ Given('a type of {string} with a description of {string} is in the database', as
 
 Given('a type of {string}', async function (type) {
 	this.type.table_name = convert_to_table_name(type)
-	this.type.name       = `${type}Types`
+	this.type.name       = camelCase(`${type}Types`)
 })
 
 Given('a type with a description of {string}', async function (description) {

@@ -1,6 +1,5 @@
-import PropTypes         from 'prop-types'
-import React             from 'react'
-import PaginatedTypeList from '../EditablePaginatedTypeList'
+import PropTypes from 'prop-types'
+import React     from 'react'
 
 export default class Index extends React.Component {
 
@@ -16,8 +15,8 @@ export default class Index extends React.Component {
 		return (
 			<div id = {id} className = {componentName} >
 				<h1 >Case Role Types</h1 >
-				<PaginatedTypeList id = {id} url = {'/people_and_organizations/api/caseRoleTypes/search/roots'}
-													 responseJsonToList = {response => response._embedded.caseRoleTypes} />
+				{/*<PaginatedTypeList id = {id} url = {'/people_and_organizations/api/caseRoleTypes/search/roots'}*/}
+				{/*									 responseJsonToList = {response => response._embedded.caseRoleTypes} />*/}
 			</div >
 		)
 	}
