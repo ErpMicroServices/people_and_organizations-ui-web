@@ -2,9 +2,10 @@ import {library}                                                          from '
 import {fab}                                                              from '@fortawesome/free-brands-svg-icons'
 import {faAngleDoubleLeft, faAngleDoubleRight, faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 import React, {Component}                                                 from 'react'
-import {BrowserRouter as Router, Link, Route, Switch}                     from "react-router-dom"
+import {BrowserRouter as Router, Link, Route, Switch}                     from 'react-router-dom'
 import './App.css'
 import Index                                                              from './CaseRoleTypes'
+import CaseTypes                                                          from './CaseTypes'
 import Home                                                               from './Home'
 import PartyTypes                                                         from './PartyTypes'
 
@@ -21,25 +22,31 @@ class App extends Component {
 					<nav >
 						<ul >
 							<li >
-								<Link to="/" >Home</Link >
+								<Link to = "/" >Home</Link >
 							</li >
 							<li >
-								<Link to="/caseRoleTypes" >Case Role Types</Link >
+								<Link id = {'caseTypes'} to = "/caseTypes" >Case Types</Link >
 							</li >
 							<li >
-								<Link to="/partyTypes" >Party Types</Link >
+								<Link to = "/caseRoleTypes" >Case Role Types</Link >
+							</li >
+							<li >
+								<Link to = "/partyTypes" >Party Types</Link >
 							</li >
 						</ul >
 					</nav >
 					<Switch >
+						<Route path = "/caseTypes" >
+							<CaseTypes id = {'app'} />
+						</Route >
 						<Route path = "/caseRoleTypes" >
 							<Index id = {'app'} />
 						</Route >
 						<Route path = "/partyTypes" >
 							<PartyTypes id = {'app'} />
 						</Route >
-						<Route path="/" >
-							<Home id={'app'} />
+						<Route path = "/" >
+							<Home id = {'app'} />
 						</Route >
 					</Switch >
 				</div >

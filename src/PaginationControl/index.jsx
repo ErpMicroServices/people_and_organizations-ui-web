@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import PropTypes         from 'prop-types'
 import React             from 'react'
-import NumberField       from '../NumberField'
+import NumberField       from '../fields/NumberField'
 
 export default class index extends React.Component {
 

@@ -1,7 +1,7 @@
 /**
  * Created by JimBarrows on 7/20/21.
  */
-import {Before} from '@cucumber/cucumber'
+import {After, Before} from '@cucumber/cucumber'
 
 Before(async function (result) {
 	await this.db.any('delete from party_contact_mechanism')
@@ -38,4 +38,8 @@ Before(async function (result) {
 	this.contact_mechanism_types = await this.db.any('select id, description from contact_mechanism_type order by description')
 	this.party_types             = await this.db.any('select id, description from party_type order by description')
 
+})
+
+After(async function (foo) {
+	await this.client.quit()
 })

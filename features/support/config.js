@@ -5,11 +5,12 @@ import fs from "fs"
 
 class Config {
 
+	//jdbc:postgresql://localhost:5432/people_and_organizations
 	constructor () {
 		this._currentEnvironment = process.env.NODE_ENV || defaultEnvironment()
 		if (this._currentEnvironment == defaultEnvironment()) {
 			this._config = {
-				url     : process.env.DATABASE_HOST || 'http://localhost:3000/',
+				url     : process.env.URL || 'http://localhost:3000/',
 				database: {
 					host    : process.env.DATABASE_HOST || 'localhost',
 					port    : process.env.DATABASE_PORT || 5432,
