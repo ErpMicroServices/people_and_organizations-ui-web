@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React     from 'react'
-import TextField from './fields/TextField'
+import TextField from '../fields/TextField'
 
-export default class ErpEdit extends React.Component {
+export default class Edit extends React.Component {
 	static propTypes = {
 		value   : PropTypes.any,
 		onChange: PropTypes.func,

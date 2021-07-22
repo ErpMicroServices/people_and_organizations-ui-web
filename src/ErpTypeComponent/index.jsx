@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React     from 'react'
-import ErpEdit   from '../ErpEdit'
 import ErpType   from '../models/ErpType'
+import Edit      from './Edit'
 
 export default class ErpTypeComponent extends React.Component {
 
@@ -31,8 +31,8 @@ export default class ErpTypeComponent extends React.Component {
 		const id            = `${componentName}_${this.props.id}`
 		return (
 			<div id = {id} className = {componentName} >
-				<ErpEdit value = {this.state.value} onChange = {newValue => this.onValueChange({description: newValue})}
-								 onClick = {this.saveCaseType} />
+				<Edit value = {this.state.value} onChange = {newValue => this.onValueChange({description: newValue})}
+							onClick = {this.saveCaseType} />
 			</div >
 		)
 	}
