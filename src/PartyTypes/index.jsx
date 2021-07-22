@@ -1,6 +1,6 @@
 import PropTypes         from 'prop-types'
 import React             from 'react'
-import PaginatedTypeList from '../EditablePaginatedTypeList'
+import PaginatedTypeList from '../ErpTypeComponent/list'
 
 
 export default class index extends React.Component {

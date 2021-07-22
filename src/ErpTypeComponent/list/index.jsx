@@ -1,8 +1,8 @@
 import PropTypes         from 'prop-types'
 import React             from 'react'
+import PaginationControl from '../../PaginationControl'
 
-import './EditablePaginatedTypeList.css'
-import PaginationControl from './PaginationControl'
+import './index.css'
 
 export default class PaginatedList extends React.Component {
 
