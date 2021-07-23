@@ -156,9 +156,8 @@ class App extends Component {
 							<ErpTypeComponent id = {'partyRoleTypes'} title = {'Party Role Types'}
 																uri = {'/partyRoleTypes'} />
 						</Route >
-						<Route path = "/priorityTypes" >
-							<ErpTypeComponent id = {'priorityTypes'} title = {'Priority Types'}
-																uri = {'/priorityTypes'} />
+						<Route path = "/priorityTypes" > <ErpTypeComponent id = {'priorityTypes'} title = {'Priority Types'}
+																															 uri = {'/priorityTypes'} />
 						</Route >
 						<Route path = "/" >
 							<Home id = {'app'} />
