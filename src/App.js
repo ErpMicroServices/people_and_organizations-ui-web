@@ -4,14 +4,8 @@ import {faAngleDoubleLeft, faAngleDoubleRight, faAngleLeft, faAngleRight} from '
 import React, {Component}                                                 from 'react'
 import {BrowserRouter as Router, Link, Route, Switch}                     from 'react-router-dom'
 import './App.css'
-import Index                                                              from './CaseRoleTypes'
-import CaseStatusTypes                                                    from './CaseStatusTypes'
-import CaseTypes                                                          from './CaseTypes'
-import CommunicationEventPurposeTypes                                     from './CommunicationEventPurposeTypes'
-import CommunicationEventRoleTypes                                        from './CommunicationEventRoleTypes'
-import CommunicationEventTypes                                            from './CommunicationEventTypes'
+import ErpTypeComponent                                                   from './ErpTypeComponent'
 import Home                                                               from './Home'
-import PartyTypes                                                         from './PartyTypes'
 
 library.add(fab, faAngleDoubleLeft, faAngleDoubleRight, faAngleLeft, faAngleRight)
 
@@ -52,31 +46,63 @@ class App extends Component {
 																																																Types</Link >
 							</li >
 							<li >
+								<Link id = {'communicationEventStatusTypes'} to = "/communicationEventStatusTypes" >Communication
+																																																		Event Status
+																																																		Types</Link >
+							</li >
+							<li >
+								<Link id = {'contactMechanismTypes'} to = "/contactMechanismTypes" >Contact Mechanism Types</Link >
+							</li >
+							<li >
+								<Link id = {'facilityTypes'} to = "/facilityTypes" >Facility Types</Link >
+							</li >
+							<li >
+								<Link id = {'facilityRoleTypes'} to = "/facilityRoleTypes" >Facility Role Types</Link >
+							</li >
+							<li >
 								<Link to = "/partyTypes" >Party Types</Link >
 							</li >
 						</ul >
 					</nav >
 					<Switch >
 						<Route path = "/caseRoleTypes" >
-							<Index id = {'app'} />
+							<ErpTypeComponent id = {'caseRoleTypes'} title = {'Case Role Types'} uri = {'/caseRoleTypes'} />
 						</Route >
 						<Route path = "/caseStatusTypes" >
-							<CaseStatusTypes id = {'app'} />
+							<ErpTypeComponent id = {'caseStatusTypes'} title = {'Case Status Types'} uri = {'/caseStatusTypes'} />
 						</Route >
 						<Route path = "/caseTypes" >
-							<CaseTypes id = {'app'} />
+							<ErpTypeComponent id = {'caseTypes'} title = {'Case Types'} uri = {'/caseTypes'} />
 						</Route >
 						<Route path = "/communicationEventTypes" >
-							<CommunicationEventTypes id = {'app'} />
+							<ErpTypeComponent id = {'communicationEventTypes'} title = {'Communication Event Types'}
+																uri = {'/communicationEventTypes'} />
 						</Route >
 						<Route path = "/communicationEventPurposeTypes" >
-							<CommunicationEventPurposeTypes id = {'app'} />
+							<ErpTypeComponent id = {'communicationEventPurposeTypes'} title = {'Communication Event Purpose Types'}
+																uri = {'/communicationEventPurposeTypes'} />
 						</Route >
 						<Route path = "/communicationEventRoleTypes" >
-							<CommunicationEventRoleTypes id = {'app'} />
+							<ErpTypeComponent id = {'communicationEventRoleTypes'} title = {'Communication Event Role Types'}
+																uri = {'/communicationEventRoleTypes'} />
+						</Route >
+						<Route path = "/communicationEventStatusTypes" >
+							<ErpTypeComponent id = {'communicationEventStatusTypes'} title = {'Communication Event Status Types'}
+																uri = {'/communicationEventStatusTypes'} />
+						</Route >
+						<Route path = "/contactMechanismTypes" >
+							<ErpTypeComponent id = {'contactMechanismTypes'} title = {'Contact Mechanism Types'}
+																uri = {'/contactMechanismTypes'} />
+						</Route >
+						<Route path = "/facilityTypes" >
+							<ErpTypeComponent id = {'facilityTypes'} title = {'Facility Types'} uri = {'/facilityTypes'} />
+						</Route >
+						<Route path = "/facilityRoleTypes" >
+							<ErpTypeComponent id = {'facilityRoleTypes'} title = {'Facility Role Types'}
+																uri = {'/facilityRoleTypes'} />
 						</Route >
 						<Route path = "/partyTypes" >
-							<PartyTypes id = {'app'} />
+							<ErpTypeComponent id = {'partyTypes'} title = {'Party Types'} uri = {'/partyTypes'} />
 						</Route >
 						<Route path = "/" >
 							<Home id = {'app'} />

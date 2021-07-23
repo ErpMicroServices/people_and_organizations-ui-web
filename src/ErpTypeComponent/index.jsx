@@ -6,8 +6,9 @@ import Edit      from './Edit'
 export default class ErpTypeComponent extends React.Component {
 
 	static propTypes = {
-		id : PropTypes.string.isRequired,
-		uri: PropTypes.string.isRequired
+		id   : PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		uri  : PropTypes.string.isRequired
 	}
 
 	static defaultProps = {}
@@ -32,6 +33,7 @@ export default class ErpTypeComponent extends React.Component {
 		const id            = `${componentName}_${this.props.id}`
 		return (
 			<div id = {id} className = {componentName} >
+				<h1 >{this.props.title}</h1 >
 				<Edit value = {this.state.value} onChange = {newValue => this.onValueChange({description: newValue})}
 							onClick = {this.saveCaseType} />
 			</div >
