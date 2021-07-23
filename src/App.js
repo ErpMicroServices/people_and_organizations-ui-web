@@ -60,7 +60,35 @@ class App extends Component {
 								<Link id = {'facilityRoleTypes'} to = "/facilityRoleTypes" >Facility Role Types</Link >
 							</li >
 							<li >
+								<Link id = {'geographicBoundaryTypes'} to = "/geographicBoundaryTypes" >Geographic Boundary
+																																												Types</Link >
+							</li >
+							<li >
+								<Link id = {'idTypes'} to = "/idTypes" >Identification Types</Link >
+							</li >
+							<li >
+								<Link id = {'nameTypes'} to = "/nameTypes" >Name Types</Link >
+							</li >
+							<li >
 								<Link to = "/partyTypes" >Party Types</Link >
+							</li >
+							<li >
+								<Link id = {'partyClassificationTypes'} to = "/partyClassificationTypes" >Party Classification
+																																													Types</Link >
+							</li >
+							<li >
+								<Link id = {'partyRelationshipTypes'} to = "/partyRelationshipTypes" >Party Relationship
+																																											Types</Link >
+							</li >
+							<li >
+								<Link id = {'partyRelationshipTypes'} to = "/partyRelationshipStatusTypes" >Party Relationship Status
+																																														Types</Link >
+							</li >
+							<li >
+								<Link id = {'partyRoleTypes'} to = "/partyRoleTypes" >Party Role Types</Link >
+							</li >
+							<li >
+								<Link id = {'priorityTypes'} to = "/priorityTypes" >Priority Types</Link >
 							</li >
 						</ul >
 					</nav >
@@ -101,8 +129,36 @@ class App extends Component {
 							<ErpTypeComponent id = {'facilityRoleTypes'} title = {'Facility Role Types'}
 																uri = {'/facilityRoleTypes'} />
 						</Route >
+						<Route path = "/geographicBoundaryTypes" >
+							<ErpTypeComponent id = {'geographicBoundaryTypes'} title = {'Geographic Boundary Types'}
+																uri = {'/geographicBoundaryTypes'} />
+						</Route >
+						<Route path = "/idTypes" >
+							<ErpTypeComponent id = {'idTypes'} title = {'Identification Types'}
+																uri = {'/idTypes'} />
+						</Route >
+						<Route path = "/nameTypes" >
+							<ErpTypeComponent id = {'nameTypes'} title = {'Name Types'}
+																uri = {'/nameTypes'} />
+						</Route >
 						<Route path = "/partyTypes" >
 							<ErpTypeComponent id = {'partyTypes'} title = {'Party Types'} uri = {'/partyTypes'} />
+						</Route >
+						<Route path = "/partyClassificationTypes" >
+							<ErpTypeComponent id = {'partyClassificationTypes'} title = {'Party Classification Types'}
+																uri = {'/partyClassificationTypes'} />
+						</Route >
+						<Route path = "/partyRelationshipTypes" >
+							<ErpTypeComponent id = {'partyRelationshipStatusTypes'} title = {'Party Relationship Status Types'}
+																uri = {'/partyRelationshipStatusTypes'} />
+						</Route >
+						<Route path = "/partyRoleTypes" >
+							<ErpTypeComponent id = {'partyRoleTypes'} title = {'Party Role Types'}
+																uri = {'/partyRoleTypes'} />
+						</Route >
+						<Route path = "/priorityTypes" >
+							<ErpTypeComponent id = {'priorityTypes'} title = {'Priority Types'}
+																uri = {'/priorityTypes'} />
 						</Route >
 						<Route path = "/" >
 							<Home id = {'app'} />
