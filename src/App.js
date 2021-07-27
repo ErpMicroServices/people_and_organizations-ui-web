@@ -70,7 +70,7 @@ class App extends Component {
 								<Link id = {'nameTypes'} to = "/nameTypes" >Name Types</Link >
 							</li >
 							<li >
-								<Link to = "/partyTypes" >Party Types</Link >
+								<Link id = {'partyTypes'} to = "/partyTypes" >Party Types</Link >
 							</li >
 							<li >
 								<Link id = {'partyClassificationTypes'} to = "/partyClassificationTypes" >Party Classification
@@ -81,8 +81,9 @@ class App extends Component {
 																																											Types</Link >
 							</li >
 							<li >
-								<Link id = {'partyRelationshipTypes'} to = "/partyRelationshipStatusTypes" >Party Relationship Status
-																																														Types</Link >
+								<Link id = {'partyRelationshipStatusTypes'} to = "/partyRelationshipStatusTypes" >Party Relationship
+																																																	Status
+																																																	Types</Link >
 							</li >
 							<li >
 								<Link id = {'partyRoleTypes'} to = "/partyRoleTypes" >Party Role Types</Link >
@@ -149,6 +150,10 @@ class App extends Component {
 																uri = {'/partyClassificationTypes'} />
 						</Route >
 						<Route path = "/partyRelationshipTypes" >
+							<ErpTypeComponent id = {'partyRelationshipTypes'} title = {'Party Relationship Types'}
+																uri = {'/partyRelationshipTypes'} />
+						</Route >
+						<Route path = "/partyRelationshipStatusTypes" >
 							<ErpTypeComponent id = {'partyRelationshipStatusTypes'} title = {'Party Relationship Status Types'}
 																uri = {'/partyRelationshipStatusTypes'} />
 						</Route >
