@@ -4,9 +4,9 @@ import {useLoaderData} from "react-router-dom";
 
 
 function ErpTypeCommponent(props) {
-    const {id, componentName, title} = props;
+    const {id, componentName, title, typename} = props;
     const {_embedded, _links, page} = useLoaderData();
-    const types = _embedded['caseRoleTypes'];
+    const types = _embedded[typename];
     return <div id={id} className={componentName}>
         <h1>{title}</h1>
         {types.length ? (

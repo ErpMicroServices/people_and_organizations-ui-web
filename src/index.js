@@ -24,7 +24,8 @@ const router = createBrowserRouter([
             {
                 path: "/caseRoleTypes",
                 element: <ErpTypeComponent id={"case-role-types"} title={"Case Role Types"}
-                                           uri={"/people_and_organizations/api/caseRoleTypes"}/>,
+                                           uri={"/people_and_organizations/api/caseRoleTypes"}
+                                           typename={'caseRoleTypes'}/>,
                 loader: getCaseRoleTypes
             }
         ]
