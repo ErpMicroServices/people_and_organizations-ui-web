@@ -1,47 +1,31 @@
 import PropTypes from 'prop-types'
-import React     from 'react'
-import ErpType   from '../models/ErpType'
-import Edit      from './Edit'
+import React from 'react'
+import {useLoaderData} from "react-router-dom";
 
-export default class ErpTypeComponent extends React.Component {
 
-	static propTypes = {
-		id   : PropTypes.string.isRequired,
-		title: PropTypes.string.isRequired,
-		uri  : PropTypes.string.isRequired
-	}
+function ErpTypeCommponent(props) {
+    const {id, componentName, title} = props;
+    const {_embedded, _links, page} = useLoaderData();
+    const types = _embedded['caseRoleTypes'];
+    return <div id={id} className={componentName}>
+        <h1>{title}</h1>
+        {types.length ? (
+            <ul>
+                {
+                    types.map(type => (
+                        <li>{type.description}</li>
+                    ))
+                }
+            </ul>
+        ) : <p>There are no types</p>}
 
-	static defaultProps = {}
-
-	onValueChange = value => this.setState({value})
-
-	saveCaseType = e => {
-		e.preventDefault()
-		fetch(`/people_and_organizations/api/${this.props.uri}`, {
-			method : "post",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body   : JSON.stringify({
-																description: this.state.value.description
-															})
-		})
-	}
-
-	render () {
-		const componentName = 'ErpTypeComponent'
-		const id            = `${componentName}_${this.props.id}`
-		return (
-			<div id = {id} className = {componentName} >
-				<h1 >{this.props.title}</h1 >
-				<Edit value = {this.state.value} onChange = {newValue => this.onValueChange({description: newValue})}
-							onClick = {this.saveCaseType} />
-			</div >
-		)
-	}
-
-	state = {
-		value: new ErpType({})
-	}
+    </div>
 }
 
+ErpTypeCommponent.propTypes = {
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    uri: PropTypes.string.isRequired
+};
+
+export default ErpTypeCommponent

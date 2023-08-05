@@ -16,8 +16,24 @@
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.3"
 	},
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.19",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "camelcase": "^6.3.0",
+    "moment": "^2.29.4",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.4",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "^5.0.1"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -37,15 +53,15 @@
     ]
   },
   "devDependencies": {
-		"@babel/core": "^7.14.6",
-		"@babel/polyfill": "^7.12.1",
-		"@babel/preset-env": "^7.14.7",
-		"@babel/register": "^7.14.5",
-		"@cucumber/cucumber": "^7.3.1",
-		"chai": "^4.3.4",
-		"chromedriver": "^119.0.1",
-		"node-fetch": "^2.6.1",
-		"pg-promise": "^10.10.2",
-		"selenium-webdriver": "^4.0.0-beta.4"
-	}
+    "@babel/core": "^7.22.9",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/register": "^7.22.5",
+    "@cucumber/cucumber": "^7.3.2",
+    "chai": "^4.3.7",
+    "chromedriver": "^91.0.1",
+    "node-fetch": "^2.6.12",
+    "pg-promise": "^10.15.4",
+    "selenium-webdriver": "^4.10.0"
+  }
 }
