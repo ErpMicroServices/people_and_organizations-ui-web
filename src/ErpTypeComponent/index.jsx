@@ -1,19 +1,33 @@
 import PropTypes from 'prop-types'
-import React from 'react'
-import {useLoaderData} from "react-router-dom";
+import React, {useEffect, useState} from 'react'
 import {useForm} from "react-hook-form";
 
 
 function ErpTypeCommponent(props) {
     const {id, componentName, title, typename, uri} = props;
-    const {_embedded, _links, page} = useLoaderData();
-    const types = _embedded[typename];
     const {
         register,
         handleSubmit,
         watch,
         formState: {errors},
     } = useForm();
+
+    const [hateoas, setHateoas] = useState({
+        _embedded: {
+            caseRoleTypes: []
+        }
+    });
+
+    useEffect(() => {
+        fetch(uri, {
+            headers: {
+                'Accept': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then(data => setHateoas(data))
+            .catch(error => console.error(error));
+    }, []);
 
     const onSubmit = async (data) => {
         console.log('data: ', data);
@@ -36,11 +50,11 @@ function ErpTypeCommponent(props) {
             <button type="submit">Add</button>
         </form>
         {
-            types.length ? (
+            hateoas._embedded[typename].length ? (
                 <ul>
                     {
-                        types.map(type => (
-                            <li>{type.description}</li>
+                        hateoas._embedded[typename].map(type => (
+                            <li id={type.id}>{type.description}</li>
                         ))
                     }
                 </ul>
@@ -50,9 +64,11 @@ function ErpTypeCommponent(props) {
 }
 
 ErpTypeCommponent.propTypes = {
+    componentName: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    uri: PropTypes.string.isRequired
+    uri: PropTypes.string.isRequired,
+    typename: PropTypes.string.isRequired
 };
 
 export default ErpTypeCommponent
