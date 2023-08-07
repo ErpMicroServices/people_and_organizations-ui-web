@@ -12,11 +12,10 @@ function ErpTypeCommponent(props) {
         formState: {errors},
     } = useForm();
 
-    const [hateoas, setHateoas] = useState({
-        _embedded: {
-            caseRoleTypes: []
-        }
-    });
+    let emptyHateoasResponse = {_embedded: {}};
+    emptyHateoasResponse._embedded[typename] = [];
+
+    const [hateoas, setHateoas] = useState(emptyHateoasResponse);
 
     useEffect(() => {
         fetch(uri, {
@@ -30,7 +29,6 @@ function ErpTypeCommponent(props) {
     }, []);
 
     const onSubmit = async (data) => {
-        console.log('data: ', data);
         await fetch(uri,
             {
                 method: "post",
@@ -39,6 +37,11 @@ function ErpTypeCommponent(props) {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
+            })
+            .then(response => response.json())
+            .then(data => {
+                hateoas._embedded[typename].push(data);
+                setHateoas(hateoas)
             })
     };
 
@@ -54,7 +57,7 @@ function ErpTypeCommponent(props) {
                 <ul>
                     {
                         hateoas._embedded[typename].map(type => (
-                            <li id={type.id}>{type.description}</li>
+                            <li id={type.id} key={type.description}>{type.description}</li>
                         ))
                     }
                 </ul>
