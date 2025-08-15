@@ -46,7 +46,7 @@
     "@babel/register": "^7.22.5",
     "@cucumber/cucumber": "^7.3.2",
     "chai": "^4.3.7",
-    "chromedriver": "^91.0.1",
+    "chromedriver": "^139.0.1",
     "node-fetch": "^2.6.12",
     "pg-promise": "^10.15.4",
     "selenium-webdriver": "^4.10.0"
